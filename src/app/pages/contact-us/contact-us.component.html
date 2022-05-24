@@ -1,0 +1,21 @@
+<div id="contact-container" parallax [config]="{ initialValue: -125, ratio: 0.5, minValue: -700, maxValue: 3000 }">
+
+    <form>
+  
+      <label for="email">Enter your email:</label>
+      <input id="email" type="email" name="email" email required autocomplete="off"> <!--[(ngModel)]="email"-->
+  
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="10" cols="50" required></textarea>
+  
+      <input class="button" type="submit">
+  
+    </form>
+  
+  
+    <div class="contact-title-container">
+      <h2>Contact Us</h2>
+    </div>
+  
+  </div>
+  

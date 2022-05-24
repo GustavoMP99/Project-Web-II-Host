@@ -1,0 +1,94 @@
+#contact-container {
+  background-image: url('./../../../assets/img/software-women-unsplash.jpg');
+  background-size: auto;
+  padding: 30px;
+}
+
+form {
+  background-color: rgba(110, 87, 224, 0.5);
+  padding: 30px;
+  box-shadow: 3px 2px 7px rgb(60 60 60 / 74%);
+}
+
+label {
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-family: var(--body-font);
+  border: 1px solid #ced4da;
+}
+
+input:focus-visible{
+  outline: none;
+}
+
+textarea {
+  font-family: var(--body-font);
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  resize: none;
+  border: 1px solid #ced4da;
+}
+
+textarea:focus-visible{
+  outline: none;
+}
+
+input[type=submit] {
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: #3c3c3c;
+  font-weight: bold;
+}
+
+input[type=submit]:hover {
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  color: var(--first-color);
+  font-weight: bold;
+}
+
+.contact-title-container {
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  padding: 15px 0;
+  font-size: 48px;
+  color: white;
+  text-shadow: 3px 2px 7px rgb(60 60 60 / 74%);
+}
+
+@media screen and (min-width: 568px){
+  #contact-container {
+    background-image: url('./../../../assets/img/software-women-unsplash.jpg');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+  }
+}
+
+
+@media screen and (min-width: 1024px){
+  #contact-container {
+    background-image: url('./../../../assets/img/software-women-unsplash.jpg');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+  }
+}

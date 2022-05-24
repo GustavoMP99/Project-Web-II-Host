@@ -1,0 +1,17 @@
+.main{
+    overflow: hidden;
+    padding-left: var(--mb-1-5);
+    padding-right: var(--mb-1-5);
+}
+
+
+@media screen and (min-width: 568px){
+}
+
+@media screen and (min-width: 1024px){
+    .main{
+        font-size: var(--normal-font-size);
+        padding-left: var(--mb-10);
+        padding-right: var(--mb-10);
+    }
+}
