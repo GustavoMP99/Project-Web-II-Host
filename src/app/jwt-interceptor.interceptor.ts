@@ -4,28 +4,32 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CookieService } from "ngx-cookie-service";
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class JwtInterceptorInterceptor implements HttpInterceptor {
+  constructor() {}
 
-  constructor( private cookie: CookieService ) {}
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
+    var user = sessionStorage.getItem('actualUser');
+    if (user) {
+      var stringUser = JSON.parse(user);
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.cookie.get('token')
-    let req = request
-    if(token){
+    }
+    let req = request;
+    if (stringUser.token) {
       req = request.clone({
         setHeaders: {
-          authorization: `Bearer ${token}`
-        }
-      })
+          authorization: `Bearer ${stringUser.token}`,
+        },
+      });
     }
-    return next.handle(req)
-    
+    return next.handle(req);
   }
 }

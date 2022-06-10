@@ -5,15 +5,15 @@
         <form >
             <p>
                 <mat-form-field>
-                    <input type="text"  [(ngModel)]="username" matInput placeholder= "Username" required>
+                    <input type="email"  [(ngModel)]="username" matInput placeholder= "Email" required name="username">
                 </mat-form-field>
             </p>
             <p class="p-password">
                 <mat-form-field >
-                    <input type="password" [(ngModel)]="password" matInput placeholder= "Password" required>
+                    <input type="password" [(ngModel)]="password" matInput placeholder= "Password" required name="password">
                 </mat-form-field>
             </p>
-            <button type="submit" mat-raised-button color="primary">Login</button>
+            <button type="submit" mat-raised-button color="primary" (click)="tryLogin()">Login</button>
         </form>
     </mat-card-content>
 </mat-card>

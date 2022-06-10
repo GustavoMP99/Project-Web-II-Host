@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { ShopRoutingModule } from './shop-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
-import { MangasComponent } from './mangas/mangas.component';
+import { MangasComponent } from './components/mangas/mangas.component';
 import { FiguresComponent } from './components/figures/figures.component';
-
+import { HttpClientModule } from '@angular/common/http';
 // Angular material modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -43,6 +43,7 @@ import { CreateCategoryDialog } from "../shared/dialogs/category/create-category
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    HttpClientModule
   ],
   exports: [
     LayoutComponent,

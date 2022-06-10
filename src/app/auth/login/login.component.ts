@@ -6,40 +6,42 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   username: String = '';
   password: String = '';
 
   dataSource = new MatTableDataSource();
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(private _loginService: LoginService,
-    @Inject(MAT_DIALOG_DATA) public editData: any) { }
+
+  constructor(private _loginService: LoginService) {}
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.username="";
-    this.password="";
+    this.username = '';
+    this.password = '';
   }
-  tryLogin=()=>{
+  tryLogin = () => {
     var user = {
-      username: this.username,
+      email: this.username,
       password: this.password,
     };
+    console.log(user);
     this._loginService.login(user).subscribe({
+      next: (res: any) => {
+        var info={
+          email: res.data.email,
+          username: res.data.username,
+          token: res.token,
+          role: res.data.role
+        }
+        sessionStorage.setItem('actualUser', JSON.stringify(info));
+        alert('Loged!');
+        location.href = "/shop";
+      },
       error: (err) => {
-        if (err.status != 201) {
-          alert("Loged!");
-          console.log(err);
-        }
-        else{
-          alert("Not loged!");
-          //Swal.fire("Done", "Customer created!", "success").then(() => {
-          //  location.reload()
-          //});
-        }
+        alert('Cant loged loged!');
+        location.reload();
       },
     });
-  }
+  };
 }

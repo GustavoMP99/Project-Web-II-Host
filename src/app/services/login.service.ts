@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class LoginService {
 
-  private baseUrl = 'https://https://fakeshop-backend.herokuapp.com';
+  private baseUrl = 'https://fakeshop-backend.herokuapp.com';
 
   private endpoint = '/login';
 

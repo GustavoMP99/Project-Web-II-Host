@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
         }
         else{
           alert("Customer created!");
+          location.href = "/shop";
           //Swal.fire("Done", "Customer created!", "success").then(() => {
           //  location.reload()
           //});
