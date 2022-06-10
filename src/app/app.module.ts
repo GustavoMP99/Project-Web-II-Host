@@ -18,6 +18,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
+import { ShopModule } from './shop/shop.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import {MatInputModule} from '@angular/material/input';
@@ -42,11 +43,8 @@ import {MatCardModule} from '@angular/material/card';
     SwiperModule,
     ParallaxModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule
+    ShopModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
