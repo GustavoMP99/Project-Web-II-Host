@@ -1,10 +1,80 @@
 <div class="content">
-    <div class="top-header">
-        <h2>Figures</h2>
-        <span class="spacer"></span>
-        <button mat-raised-button color="primary">Add</button>
-    </div>
+  <div class="top-header">
+    <h2 class="m-0">Figures</h2>
+    <span class="spacer"></span>
+    <button mat-raised-button class="green" (click)="openCreateDialog()">Add</button>
+  </div>
 
-    <mat-divider></mat-divider>
-    
+  <mat-divider></mat-divider>
+
+  <div class="buttons-container">
+    <button mat-stroked-button color="primary" (click)="openCreateCategoryDialog()">Add category</button>
+    <button mat-stroked-button color="primary">Add franchise</button>
+    <button mat-stroked-button color="primary">Add state</button>
+  </div>
+
+  <div class="mat-elevation-z8 table">
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef> Stock </th>
+        <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="franchise">
+        <th mat-header-cell *matHeaderCellDef> Franchise </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_franchise}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_state}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="width-10"> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="openEditDialog(element)">
+            <i class="fa-solid fa-pen-to-square orange"></i>
+          </button>
+          <button mat-icon-button>
+            <i class="fa-solid fa-trash-can red"></i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+
+  </div>
 </div>

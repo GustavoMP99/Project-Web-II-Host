@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+
 //Pages
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+
   ],
   exports: [],
 })

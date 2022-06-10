@@ -8,6 +8,7 @@ import { MaterialModule } from '../material/material.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { ForgotComponent } from './forgot/forgot.component';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class AuthModule { }

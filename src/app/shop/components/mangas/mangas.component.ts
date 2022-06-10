@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./mangas.component.scss']
 })
 export class MangasComponent implements OnInit {
+
   displayedColumns = [
     'id',
     'name',
@@ -29,17 +30,16 @@ export class MangasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // ----------------------------------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------
 
-  getAllList = () => {
-    this._mangaService.getAllList().subscribe({
-      next: (res: any) => {
-        this.dataSource.data = res.rows;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  };
-
+    getAllList = () => {
+      this._mangaService.getAllList().subscribe({
+        next: (res: any) => {
+          this.dataSource.data = res.rows;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    };
 }

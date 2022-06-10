@@ -5,21 +5,21 @@
       <form>
         <p>
           <mat-form-field>
-            <input type="email" matInput placeholder="Email" required />
+            <input type="email" [(ngModel)]="email" matInput placeholder="Email" required />
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <input type="text" matInput placeholder="Username" required />
+            <input type="text" [(ngModel)]="username" matInput placeholder="Username" required />
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <input id= "password"type="password" matInput placeholder="Password" required />
+            <input id= "password"type="password" [(ngModel)]="password" matInput placeholder="Password" required />
           </mat-form-field>
         </p>
 
-        <button type="submit" mat-raised-button color="primary">Login</button>
+        <button type="submit" mat-raised-button color="primary" (click)="postCustomer()" >Login</button>
       </form>
     </mat-card-content>
   </mat-card>
