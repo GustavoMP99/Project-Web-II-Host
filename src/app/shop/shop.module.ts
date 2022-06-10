@@ -23,6 +23,9 @@ import { CreateEditMangasDialog } from './components/mangas/dialogs/create-edit-
 import { CreateCategoryDialog } from "../shared/dialogs/category/create-category.dialog"
 import { CreateFranchiseDialog } from "../shared/dialogs/franchise/create-franchise.dialog"
 import { CreateStateDialog } from "../shared/dialogs/state/create-state.dialog"
+import { SouvenirsComponent } from "./components/souvenirs/souvenirs.component"
+import { CreateEditSouvenirsDialog } from "./components/souvenirs/dialogs/create-edit-souvenir.dialog"
+import { CreateTypeDialog } from "../shared/dialogs/type/create-type.dialog"
 
 
 
@@ -35,6 +38,9 @@ import { CreateStateDialog } from "../shared/dialogs/state/create-state.dialog"
     MangasComponent,
     CreateFranchiseDialog,
     CreateStateDialog,
+    SouvenirsComponent,
+    CreateEditSouvenirsDialog,
+    CreateTypeDialog
     CreateEditMangasDialog
   ],
   imports: [
@@ -56,7 +62,10 @@ import { CreateStateDialog } from "../shared/dialogs/state/create-state.dialog"
     CreateEditFigureDialog,
     CreateCategoryDialog,
     CreateFranchiseDialog,
-    CreateStateDialog
+    CreateStateDialog,
+    SouvenirsComponent,
+    CreateEditSouvenirsDialog,
+    CreateTypeDialog
   ]
 })
 export class ShopModule { }

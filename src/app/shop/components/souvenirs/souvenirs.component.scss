@@ -1,0 +1,63 @@
+.content {
+    padding: 25px;
+
+}
+
+.top-header {
+    display: flex;
+    padding: 10px;
+
+    .spacer {
+        flex-grow: 1;
+    }
+}
+
+.table {
+    margin-top: 25px;
+    
+    table {
+        width: 100%;
+    }
+
+}
+
+.width-10 {
+    width: 10%;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    background-color: green;
+    color: #fff;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons-container {
+    margin-top: 25px;
+
+    button {
+        margin-right: 10px;
+    }
+
+}
+
+.m-0 {
+    margin: 0
+}
