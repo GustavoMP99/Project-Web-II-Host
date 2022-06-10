@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth.routing';
+import { MaterialModule } from '../material/material.module';
+
 
 //Pages
 import { LoginComponent } from './login/login.component';
@@ -13,11 +15,13 @@ import { ForgotComponent } from './forgot/forgot.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    ForgotComponent
+    ForgotComponent,
+    
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }
