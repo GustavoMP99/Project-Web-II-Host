@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { ShopRoutingModule } from './shop-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
+import { MangasComponent } from './mangas/mangas.component';
+import { FiguresComponent } from './components/figures/figures.component';
 
 // Angular material modules
 import { MatButtonModule } from '@angular/material/button';
-import { FiguresComponent } from './components/figures/figures.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -16,13 +17,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
-
-
-
-
 // Dialogs
 import { CreateEditFigureDialog } from "./components/figures/dialogs/create-edit-figure.dialog"
 import { CreateCategoryDialog } from "../shared/dialogs/category/create-category.dialog"
+
 
 
 @NgModule({
@@ -30,7 +28,8 @@ import { CreateCategoryDialog } from "../shared/dialogs/category/create-category
     LayoutComponent,
     FiguresComponent,
     CreateEditFigureDialog,
-    CreateCategoryDialog
+    CreateCategoryDialog,
+    MangasComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +42,7 @@ import { CreateCategoryDialog } from "../shared/dialogs/category/create-category
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   exports: [
     LayoutComponent,
