@@ -21,11 +21,6 @@
     </mat-form-field>
 
     <mat-form-field class="w-100">
-      <mat-label>Stock</mat-label>
-      <input matInput required type="number" name="stock" [(ngModel)]="figureModel.stock" min="0">
-    </mat-form-field>
-
-    <mat-form-field class="w-100">
       <mat-label>State</mat-label>
       <mat-select [(ngModel)]="figureModel.id_state" name="state" required>
         <mat-option *ngFor="let state of states" [value]="state.id_state">
@@ -67,6 +62,6 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button *ngIf="isCreate" mat-button [disabled]="!figureForm.valid">Add</button>
-  <button *ngIf="!isCreate" mat-button [disabled]="!figureForm.valid">Edit</button>
+  <button *ngIf="isCreate" mat-button [disabled]="!figureForm.valid" (click)="create()">Add</button>
+  <button *ngIf="!isCreate" mat-button [disabled]="!figureForm.valid" (click)="update()">Edit</button>
 </mat-dialog-actions>

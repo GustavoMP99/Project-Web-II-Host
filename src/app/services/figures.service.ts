@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class FiguresService {
 
   private baseUrl = 'https://fakeshop-backend.herokuapp.com';
 
-  private endpoint = '/category';
+  private endpoint = '/figures';
 
   constructor( private _http: HttpClient ) { }
 
@@ -16,5 +16,7 @@ export class CategoryService {
 
   create = ( input: any ) => this._http.post( this.baseUrl + this.endpoint, input );
 
+  update = ( id: number, input: any ) => this._http.put( this.baseUrl + this.endpoint + `/${id}`, input );
 
+  delete = ( id: number ) => this._http.delete( this.baseUrl + this.endpoint + `/${id}` );
 }

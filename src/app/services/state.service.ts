@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class StateService {
 
   private baseUrl = 'https://fakeshop-backend.herokuapp.com';
 
-  private endpoint = '/category';
+  private endpoint = '/state';
 
   constructor( private _http: HttpClient ) { }
 

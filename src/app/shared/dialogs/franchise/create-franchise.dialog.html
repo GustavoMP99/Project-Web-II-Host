@@ -1,12 +1,12 @@
-<h2 mat-dialog-title>Add new category</h2>
+<h2 mat-dialog-title>Add new franchise</h2>
 
 <mat-dialog-content>
 
-  <form #categoryForm="ngForm">
+  <form #franchiseForm="ngForm">
 
     <mat-form-field class="w-100">
       <mat-label>Name</mat-label>
-      <input matInput required name="name" [(ngModel)]="categoryModel.category">
+      <input matInput required name="name" [(ngModel)]="franchiseModel.franchise">
     </mat-form-field>
 
   </form>
@@ -15,5 +15,5 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [disabled]="!categoryForm.valid" (click)="create()">Add</button>
+  <button mat-button [disabled]="!franchiseForm.valid" (click)="create()">Add</button>
 </mat-dialog-actions>
