@@ -22,4 +22,9 @@ export class LayoutComponent implements OnInit {
     this.isVisibleSidebar = false;
   }
 
+  getOut=()=>{
+    sessionStorage.setItem('actualUser','');
+    location.href = ""
+  }
+
 }

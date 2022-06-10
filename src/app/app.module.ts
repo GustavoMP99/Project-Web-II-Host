@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SwiperModule } from 'swiper/angular';
 import { ParallaxModule } from 'ngx-parallax';
 import { AppRoutingModule } from './app.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //components
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -47,7 +48,9 @@ import { JwtInterceptorInterceptor } from "./jwt-interceptor.interceptor"
     AppRoutingModule,
     ShopModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true }

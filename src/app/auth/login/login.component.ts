@@ -26,28 +26,34 @@ export class LoginComponent implements OnInit {
       email: this.username,
       password: this.password,
     };
-    //console.log(user);
+
     this._loginService.login(user).subscribe({
       next: (res: any) => {
-        console.log(res)
-        var info={
+        console.log(res);
+        var info = {
           email: res.data.email,
           username: res.data.username,
           token: res.token,
-          role: res.data.role
+          role: res.data.role,
+        };
+
+        if ((info.role = 'admin')) {
+          sessionStorage.setItem('actualUser', JSON.stringify(info));
+          Swal.fire('Done', 'Loged!', 'success').then(() => {
+            location.href = '/shop';
+          });
         }
-        //console.log(info)
-        sessionStorage.setItem('actualUser', JSON.stringify(info));
-        Swal.fire("Done", "Loged!", "success").then(() => {
-          location.href = "/shop";
-        });        
+        else{
+          Swal.fire('Done', 'Loged!', 'success').then(() => {
+            location.href = '/';
+          });
+        }
       },
       error: (err) => {
-        console.log(err)
-        Swal.fire("Error", "Cant login!", "error").then(() => {
+        console.log(err);
+        Swal.fire('Error', 'Cant login!', 'error').then(() => {
           location.reload();
-        });     
-        
+        });
       },
     });
   };
