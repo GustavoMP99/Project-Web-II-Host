@@ -1,5 +1,5 @@
 <div class="parent">
-  <div class="sidebar">
+  <div class="sidebar" [ngClass]="isVisibleSidebar ? '' : 'hide'">
     <div class="sidebar-header">
       <h2>FakeShop</h2>
     </div>
@@ -28,13 +28,19 @@
       </ul>
     </div>
   </div>
-  <div class="topbar">
+  <div class="topbar" [ngClass]="isVisibleSidebar ? '' : 'topbar-no-sidebar'">
+    <button *ngIf="!isVisibleSidebar" mat-icon-button (click)="showSidebar()">
+      <i class="fa-solid fa-caret-right"></i>
+    </button>
+    <button *ngIf="isVisibleSidebar" mat-icon-button (click)="hideSidebar()">
+      <i class="fa-solid fa-caret-left"></i>
+    </button>
     <span class="spacer"></span>
     <button mat-icon-button>
       <i class="fa-solid fa-arrow-right-from-bracket"></i>
     </button>
   </div>
-  <div class="content">
+  <div class="content" [ngClass]="isVisibleSidebar ? '' : 'content-no-sidebar'">
     <router-outlet></router-outlet>
   </div>
 </div>

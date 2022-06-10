@@ -11,6 +11,11 @@
   grid-area: 1 / 1 / 6 / 2;
   background-color: #363B55;
 }
+
+.hide {
+  display: none;
+}
+
 .topbar {
   grid-area: 1 / 2 / 2 / 6;
   background-color: #fff;
@@ -22,9 +27,18 @@
   }
 
 }
+
+.topbar-no-sidebar {
+  grid-area: 1 / 1 / 2 / 6;
+}
+
 .content {
   grid-area: 2 / 2 / 6 / 6;
   background-color: #F8F6FD;
+}
+
+.content-no-sidebar {
+  grid-area: 2 / 1 / 6 / 6;
 }
 
 .spacer {

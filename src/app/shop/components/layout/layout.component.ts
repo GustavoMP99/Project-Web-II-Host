@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
+  isVisibleSidebar = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showSidebar = () => {
+    this.isVisibleSidebar = true;
+  }
+
+  hideSidebar = () => {
+    this.isVisibleSidebar = false;
   }
 
 }
