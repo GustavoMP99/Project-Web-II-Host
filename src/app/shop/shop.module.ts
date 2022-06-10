@@ -6,18 +6,24 @@ import { LayoutComponent } from './components/layout/layout.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FiguresComponent } from './components/figures/figures.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MangasComponent } from './mangas/mangas.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    FiguresComponent
+    FiguresComponent,
+    MangasComponent
   ],
   imports: [
     CommonModule,
     ShopRoutingModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     LayoutComponent,

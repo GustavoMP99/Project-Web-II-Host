@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrudMangaComponent } from './crud-manga.component';
+import { MangasComponent } from './mangas.component';
 
-describe('CrudMangaComponent', () => {
-  let component: CrudMangaComponent;
-  let fixture: ComponentFixture<CrudMangaComponent>;
+describe('MangasComponent', () => {
+  let component: MangasComponent;
+  let fixture: ComponentFixture<MangasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CrudMangaComponent ]
+      declarations: [ MangasComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrudMangaComponent);
+    fixture = TestBed.createComponent(MangasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

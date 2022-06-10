@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MangaService {
 
-  private baseUrl = 'https://web-proyecto2-backend.herokuapp.com';
+  private baseUrl = 'https://web-examen2-backend.herokuapp.com';
 
   private endpoint = '/manga';
 

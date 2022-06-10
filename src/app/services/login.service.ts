@@ -10,7 +10,7 @@ export class LoginService {
 
   private baseUrl = 'https://web-examen2-backend.herokuapp.com';
 
-  private endpoint = '/login';
+  private endpoint = '/users';
 
   constructor( private _http: HttpClient ) { }
 

@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 import { MangaService } from 'src/app/services/manga.service';
-
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-crud-manga',
-  templateUrl: './crud-manga.component.html',
-  styleUrls: ['./crud-manga.component.scss'],
+  selector: 'app-mangas',
+  templateUrl: './mangas.component.html',
+  styleUrls: ['./mangas.component.scss']
 })
-export class CrudMangaComponent implements OnInit {
+export class MangasComponent implements OnInit {
   displayedColumns = [
     'id',
     'name',
@@ -23,9 +24,11 @@ export class CrudMangaComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
 
-  constructor(private _mangaService: MangaService) {}
+  constructor(private _mangaService: MangaService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
   // ----------------------------------------------------------------------------------------------
 
   getAllList = () => {
@@ -38,4 +41,5 @@ export class CrudMangaComponent implements OnInit {
       },
     });
   };
+
 }
