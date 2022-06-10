@@ -9,8 +9,8 @@
 
   <div class="buttons-container">
     <button mat-stroked-button color="primary" (click)="openCreateCategoryDialog()">Add category</button>
-    <button mat-stroked-button color="primary">Add franchise</button>
-    <button mat-stroked-button color="primary">Add state</button>
+    <button mat-stroked-button color="primary" (click)="openCreateFranchiseDialog()">Add franchise</button>
+    <button mat-stroked-button color="primary" (click)="openCreateStateDialog()">Add state</button>
   </div>
 
   <div class="mat-elevation-z8 table">
@@ -19,7 +19,7 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.id_figure}} </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
@@ -37,24 +37,19 @@
         <td mat-cell *matCellDef="let element"> {{element.price}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="stock">
-        <th mat-header-cell *matHeaderCellDef> Stock </th>
-        <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
-      </ng-container>
-
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let element"> {{element.id_category}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.category.category}} </td>
       </ng-container>
 
       <ng-container matColumnDef="franchise">
         <th mat-header-cell *matHeaderCellDef> Franchise </th>
-        <td mat-cell *matCellDef="let element"> {{element.id_franchise}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.franchise.franchise}} </td>
       </ng-container>
 
       <ng-container matColumnDef="state">
         <th mat-header-cell *matHeaderCellDef> State </th>
-        <td mat-cell *matCellDef="let element"> {{element.id_state}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.state.state}} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
@@ -63,7 +58,7 @@
           <button mat-icon-button (click)="openEditDialog(element)">
             <i class="fa-solid fa-pen-to-square orange"></i>
           </button>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="delete(element.id_figure)">
             <i class="fa-solid fa-trash-can red"></i>
           </button>
         </td>

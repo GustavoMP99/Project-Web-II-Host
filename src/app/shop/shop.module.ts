@@ -20,6 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 // Dialogs
 import { CreateEditFigureDialog } from "./components/figures/dialogs/create-edit-figure.dialog"
 import { CreateCategoryDialog } from "../shared/dialogs/category/create-category.dialog"
+import { CreateFranchiseDialog } from "../shared/dialogs/franchise/create-franchise.dialog"
+import { CreateStateDialog } from "../shared/dialogs/state/create-state.dialog"
 
 
 
@@ -29,7 +31,9 @@ import { CreateCategoryDialog } from "../shared/dialogs/category/create-category
     FiguresComponent,
     CreateEditFigureDialog,
     CreateCategoryDialog,
-    MangasComponent
+    MangasComponent,
+    CreateFranchiseDialog,
+    CreateStateDialog
   ],
   imports: [
     CommonModule,
@@ -48,7 +52,9 @@ import { CreateCategoryDialog } from "../shared/dialogs/category/create-category
     LayoutComponent,
     FiguresComponent,
     CreateEditFigureDialog,
-    CreateCategoryDialog
+    CreateCategoryDialog,
+    CreateFranchiseDialog,
+    CreateStateDialog
   ]
 })
 export class ShopModule { }
