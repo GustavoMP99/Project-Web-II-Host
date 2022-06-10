@@ -1,0 +1,84 @@
+.parent {
+  display: grid;
+  grid-template-columns: 0.75fr repeat(4, 1fr);
+  grid-template-rows: 75px repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100vh;
+}
+
+.sidebar {
+  grid-area: 1 / 1 / 6 / 2;
+  background-color: #363B55;
+}
+.topbar {
+  grid-area: 1 / 2 / 2 / 6;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+
+  button {
+    margin: 10px;
+  }
+
+}
+.content {
+  grid-area: 2 / 2 / 6 / 6;
+  background-color: #F8F6FD;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.sidebar-header {
+  align-items: center;
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  background-color: #6F51ED;
+
+  h2 {
+    color: #fff
+  }
+
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    width: 100%;
+  }
+
+}
+
+.item {
+  display: flex;
+
+  a {
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 20px 20px 0 20px;
+    text-align: center;
+    color: #6F51ED;
+  }
+
+  :hover {
+    background-color: #6F51ED;
+    color: #fff;
+  }
+
+}
+
+.content {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px rgba(239,237,244,1);
+  margin: 2em;
+  background-color: #fff;
+}
