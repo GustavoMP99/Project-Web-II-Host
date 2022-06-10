@@ -40,7 +40,7 @@ import { CreateTypeDialog } from "../shared/dialogs/type/create-type.dialog"
     CreateStateDialog,
     SouvenirsComponent,
     CreateEditSouvenirsDialog,
-    CreateTypeDialog
+    CreateTypeDialog,
     CreateEditMangasDialog
   ],
   imports: [
