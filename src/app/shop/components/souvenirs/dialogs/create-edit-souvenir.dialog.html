@@ -1,0 +1,76 @@
+<h2 *ngIf="isCreate" mat-dialog-title>Add new souvenir</h2>
+<h2 *ngIf="!isCreate" mat-dialog-title>Edit souvenir</h2>
+
+<mat-dialog-content>
+
+  <form #figureForm="ngForm">
+
+    <mat-form-field class="w-100">
+      <mat-label>Name</mat-label>
+      <input matInput required name="name" [(ngModel)]="souvenirModel.name">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Description</mat-label>
+      <input matInput required name="description" [(ngModel)]="souvenirModel.description">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Price</mat-label>
+      <input matInput required type="number" name="price" [(ngModel)]="souvenirModel.price" min="0">
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>State</mat-label>
+      <mat-select [(ngModel)]="souvenirModel.id_state" name="state" required>
+        <mat-option *ngFor="let state of states" [value]="state.id_state">
+          {{state.state}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="souvenirModel.id_category" name="category" required>
+        <mat-option *ngFor="let category of categories" [value]="category.id_category">
+          {{category.category}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Franchise</mat-label>
+      <mat-select [(ngModel)]="souvenirModel.id_franchise" name="franchise" required>
+        <mat-option *ngFor="let franchise of franchises" [value]="franchise.id_franchise">
+          {{franchise.franchise}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="souvenirModel.id_type" name="type" required>
+        <mat-option *ngFor="let type of types" [value]="type.id_type">
+          {{type.type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-100">
+      <mat-label>Image Url</mat-label>
+      <input matInput required name="image_url" [(ngModel)]="souvenirModel.image_url">
+    </mat-form-field>
+
+    <div *ngIf="souvenirModel.image_url" class="center">
+      <img src="{{souvenirModel.image_url}}" alt="Image Url" class="image">
+    </div>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button *ngIf="isCreate" mat-button [disabled]="!figureForm.valid" (click)="create()">Add</button>
+  <button *ngIf="!isCreate" mat-button [disabled]="!figureForm.valid" (click)="update()">Edit</button>
+</mat-dialog-actions>
