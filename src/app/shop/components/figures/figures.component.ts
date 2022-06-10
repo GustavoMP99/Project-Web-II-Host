@@ -4,31 +4,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateEditFigureDialog } from "./dialogs/create-edit-figure.dialog"
 import { CreateCategoryDialog } from "../../../shared/dialogs/category/create-category.dialog"
+import { CreateFranchiseDialog } from "../../../shared/dialogs/franchise/create-franchise.dialog"
+import { CreateStateDialog } from "../../../shared/dialogs/state/create-state.dialog"
+import { FiguresService } from "../../../services/figures.service"
+import Swal from 'sweetalert2';
 
-const figures: any[] = [
-  {
-    id: 1,
-    name: 'Figure 1',
-    description: 'Description figure 1',
-    price: 2500,
-    id_state: 1,
-    image_url: 'https://www.megaotaku.com/56951-medium_default/demon-slayer-kimetsu-no-yaiba-sega-prize-figurizm-tengen-uzui.jpg',
-    id_category: 1,
-    stock: 15,
-    id_franchise: 1
-  },
-  {
-    id: 2,
-    name: 'Figure 2',
-    description: 'Description figure 2',
-    price: 3000,
-    id_state: 2,
-    image_url: 'https://www.megaotaku.com/56951-medium_default/demon-slayer-kimetsu-no-yaiba-sega-prize-figurizm-tengen-uzui.jpg',
-    id_category: 2,
-    stock: 12,
-    id_franchise: 2
-  }
-];
 
 @Component({
   selector: 'app-figures',
@@ -37,20 +17,21 @@ const figures: any[] = [
 })
 export class FiguresComponent implements OnInit, AfterViewInit {
 
-  dataSource = new MatTableDataSource(figures);
+  dataSource = new MatTableDataSource([]);
 
-  displayedColumns: string[] = ['id', 'name', 'description', 'price', 'stock', 'category',
+  displayedColumns: string[] = ['id', 'name', 'description', 'price', 'category',
     'franchise', 'state', 'actions'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private _dialog: MatDialog) { }
+  constructor(private _dialog: MatDialog, private _figuresService: FiguresService) { }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   openCreateDialog(): void {
@@ -59,23 +40,73 @@ export class FiguresComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe( result => {
-      console.log('The dialog was closed');
+      if (result === 'reload') {
+        this.getAll();
+      }
     });
   }
 
   openEditDialog( figure: any ): void {
+
+    const data = {
+      id_figure: figure.id_figure,
+      name: figure.name,
+      description: figure.description,
+      price: figure.price,
+      image_url: figure.image_url,
+      id_category: figure.category.id_category,
+      id_state: figure.state.id_state,
+      id_franchise: figure.franchise.id_franchise
+      
+    }
+
     const dialogRef = this._dialog.open( CreateEditFigureDialog, {
       width: '600px',
-      data: figure
+      data
     });
 
     dialogRef.afterClosed().subscribe( result => {
-      console.log('The dialog was closed');
+      if (result === 'reload') {
+        this.getAll();
+      }
     });
   }
 
   openCreateCategoryDialog() {
     const dialogRef = this._dialog.open( CreateCategoryDialog);
   }
+
+  openCreateFranchiseDialog() {
+    const dialogRef = this._dialog.open( CreateFranchiseDialog);
+  }
+
+  openCreateStateDialog() {
+    const dialogRef = this._dialog.open( CreateStateDialog);
+  }
+
+  getAll = () => {
+    this._figuresService.getAll().subscribe({
+      next: (res: any) => {
+        this.dataSource.data = res.rows;
+      },
+      error: ( err: any ) => {
+        Swal.fire('Erorr', 'An error has ocurred', 'error')
+      }
+    })
+  }
+
+  delete = (id: number) => {
+    this._figuresService.delete(id).subscribe({
+      next: (res: any) => {
+        Swal.fire('Delete', 'Figure deleted', 'success')
+        this.getAll();
+      },
+      error: ( err: any ) => {
+        Swal.fire('Erorr', 'An error has ocurred', 'error')
+      }
+    })
+  }
+
+
 
 }

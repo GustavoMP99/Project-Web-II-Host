@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,22 +26,28 @@ export class LoginComponent implements OnInit {
       email: this.username,
       password: this.password,
     };
-    console.log(user);
+    //console.log(user);
     this._loginService.login(user).subscribe({
       next: (res: any) => {
+        console.log(res)
         var info={
           email: res.data.email,
           username: res.data.username,
           token: res.token,
           role: res.data.role
         }
+        //console.log(info)
         sessionStorage.setItem('actualUser', JSON.stringify(info));
-        alert('Loged!');
-        location.href = "/shop";
+        Swal.fire("Done", "Loged!", "success").then(() => {
+          location.href = "/shop";
+        });        
       },
       error: (err) => {
-        alert('Cant loged loged!');
-        location.reload();
+        console.log(err)
+        Swal.fire("Error", "Cant login!", "error").then(() => {
+          location.reload();
+        });     
+        
       },
     });
   };

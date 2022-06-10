@@ -18,18 +18,19 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     var user = sessionStorage.getItem('actualUser');
+    let req = request;
     if (user) {
       var stringUser = JSON.parse(user);
 
-    }
-    let req = request;
+    
     if (stringUser.token) {
       req = request.clone({
         setHeaders: {
           authorization: `Bearer ${stringUser.token}`,
         },
       });
-    }
+    }}
+    
     return next.handle(req);
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-register',
@@ -25,12 +27,16 @@ export class RegisterComponent implements OnInit {
     this._userService.create(user).subscribe({
       error: (err) => {
         if (err.status != 201) {
-          alert("Customer not created!");
+          Swal.fire("Error", "User not created!", "error").then(() => {
+            location.reload();
+          });   
           console.log(err);
         }
         else{
-          alert("Customer created!");
-          location.href = "/shop";
+          Swal.fire("Done", "User Created!", "success").then(() => {
+            location.href = "/";
+          });   
+          
           //Swal.fire("Done", "Customer created!", "success").then(() => {
           //  location.reload()
           //});
