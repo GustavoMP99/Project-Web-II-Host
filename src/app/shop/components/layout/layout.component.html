@@ -1,0 +1,40 @@
+<div class="parent">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>FakeShop</h2>
+    </div>
+    <div class="menu">
+      <ul>
+        <li class="item">
+          <a [routerLink]="['../shop']">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="">
+            <span>Mangas</span>
+          </a>
+        </li>
+        <li class="item">
+          <a routerLink="figures">
+            <span>Figures</span>
+          </a>
+        </li>
+        <li class="item">
+          <a routerLink="">
+            <span>Souvenirs</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="topbar">
+    <span class="spacer"></span>
+    <button mat-icon-button>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </button>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

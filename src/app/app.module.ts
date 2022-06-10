@@ -18,6 +18,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
+import { ShopModule } from './shop/shop.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ForgotComponent } from './auth/forgot/forgot.component';
     BrowserModule,
     SwiperModule,
     ParallaxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ShopModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
